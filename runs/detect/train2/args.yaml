@@ -1,8 +1,8 @@
 task: detect
 mode: train
-model: yolov8n.pt
-data: /content/drive/MyDrive/YOLOv8/dataset.yaml
-epochs: 100
+model: best.pt
+data: dataset.yaml
+epochs: 20
 patience: 50
 batch: 16
 imgsz: 640
@@ -10,12 +10,12 @@ save: true
 save_period: -1
 cache: false
 device: null
-workers: 8
+workers: 5
 project: null
 name: null
 exist_ok: false
 pretrained: true
-optimizer: auto
+optimizer: AdamW
 verbose: true
 seed: 0
 deterministic: true
@@ -49,7 +49,6 @@ save_crop: false
 show_labels: true
 show_conf: true
 vid_stride: 1
-stream_buffer: false
 line_width: null
 visualize: false
 augment: false
@@ -95,4 +94,4 @@ mixup: 0.0
 copy_paste: 0.0
 cfg: null
 tracker: botsort.yaml
-save_dir: runs/detect/train2
+save_dir: runs\detect\train2
