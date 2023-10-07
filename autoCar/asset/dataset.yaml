@@ -1,6 +1,0 @@
-path: D:\đồ án\yolov8.2\dataset\
-train: train\
-val: val\
-
-nc: 5
-names: ['do', 'vang', 'xanh', 'xe', 'nguoi']
