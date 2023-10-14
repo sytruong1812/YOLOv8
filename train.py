@@ -7,5 +7,5 @@ model = YOLO('best.pt')  # load a pretrained model (recommended for training)
 
 if __name__ == '__main__':
     # Train the model
-    results = model.train(data='dataset.yaml', epochs=50, imgsz=640, batch=16, workers=5, optimizer='AdamW')
+    results = model.train(data='dataset.yaml', epochs=100, imgsz=640, batch=16, workers=5, optimizer='AdamW')
     metrics = model.val()
