@@ -116,6 +116,7 @@ class Yolov8s:
         Returns:
             numpy.ndarray: The input image with detections drawn on it.
         """
+        info = [[],[]]
 
         # Lists to store the bounding boxes, scores, and class IDs of the detections
         boxes = output[0][0]
@@ -135,7 +136,10 @@ class Yolov8s:
             height = int(h * y_factor)
             self.draw_detections(input_image, [left, top, width, height], scores[i], class_ids[i])
 
-        return  input_image
+            info[0].append(class_ids[i])
+            info[1].append(top + height)
+
+        return  input_image, info
 
     def predict(self, img, returnImg):
         """
@@ -156,9 +160,11 @@ class Yolov8s:
 
         # Perform post-processing on the outputs to obtain output image.
         # a = time.time()
-        class_ids = outputs[2][0]
+        # class_ids = outputs[2][0]
+        # boxes = outputs[0][0]
+        
+        img, info = self.postprocess(img, outputs)  # output image
         if returnImg:
-            img = self.postprocess(img, outputs)  # output image
-            return img, class_ids
+            return img, info
         else:
-            return (None, class_ids)
+            return (None, info)

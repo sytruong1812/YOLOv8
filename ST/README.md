@@ -6,8 +6,9 @@
 
     Vidu: Jetpack 4.6
 
-        wget https://nvidia.box.com/shared/static/pmsqsiaw4pg9qrbeckcbymho6c01jj4z.whl -O onnxruntime_gpu-1.11.0-cp36-cp36m-linux_aarch64.whl
-        pip3 install onnxruntime_gpu-1.10.0-cp36-cp36m-linux_aarch64.whl
+        wget https://nvidia.box.com/shared/static/v59xkrnvederwewo2f1jtv6yurl92xso.whl -O onnxruntime_gpu-1.12.1-cp38-cp38-linux_aarch64.whl
+
+        pip3 install onnxruntime_gpu-1.12.1-cp38-cp38-linux_aarch64.whl
 
 2. Fix loi cai onnxruntime_gpu:
 

@@ -1,0 +1,11 @@
+GPIO PCA9685
+
+SCL: SLK
+SDA: DAT
+OE: Vô hiệu hóa tất cả các đầu ra (0-ON | 1-OFF)
+GND
+VCC: 3v-5v
+
+
+V+: Cấp nguồn cho servor (5-6v)
+GND
