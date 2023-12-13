@@ -60,7 +60,7 @@ class MyPCA9685():
         self.servo2_instance.angle = angle
 
 try:
-    control = MyPCA9685(ENA=0, IN1=1, IN2=2, Servo1=3, Servo2=4)
+    control = MyPCA9685(ENA=0, IN1=1, IN2=2, Servo1=3, Servo2=15)
     while True:
         #control.Forward(True)
         
@@ -70,7 +70,7 @@ try:
 
         control.Servo1_Angle(110)
 
-        control.Servo2_Angle(180)	#MIN=30 | MAX=180 | 110
+        #control.Servo2_Angle(30)	#MIN=30 | MAX=180 | 110
 
 except KeyboardInterrupt:
     pass

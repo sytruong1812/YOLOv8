@@ -11,4 +11,4 @@ def FrameCapture(path):
         count += 1
 
 if __name__ == '__main__':
-    FrameCapture("C:\\Users\\SY TRUONG\\Pictures\\Camera Roll\\WIN_20231111_11_03_21_Pro.mp4")
+    FrameCapture("C:\\Users\\SY TRUONG\\Videos\\video_new.mp4")
