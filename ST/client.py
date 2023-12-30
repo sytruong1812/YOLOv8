@@ -1,6 +1,6 @@
 import time
-import socket
 import busio
+import socket
 from board import SCL, SDA
 from adafruit_pca9685 import PCA9685
 import adafruit_motor.servo
@@ -99,7 +99,7 @@ def Run():
         }
 
         while True:
-            my_control.forward(True, speed=0.2)
+            my_control.forward(True, speed=0.08)
             response = client_socket.recv(1024).decode('utf-8')
 
             if response == 'Exit':
