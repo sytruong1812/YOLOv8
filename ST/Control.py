@@ -20,27 +20,25 @@ class MyPCA9685():
         self.servo1_instance = adafruit_motor.servo.Servo(self.servo1)
         self.servo2_instance = adafruit_motor.servo.Servo(self.servo2)
 
-    def Forward(self, enablePWM=True):
+    def Backward(self, enablePWM=True, duty_cycle_step=1000, speed=1.0):
         if enablePWM:
-            for i in range(10000, 0xffff, 10000):
-                self.ENA.duty_cycle = i
-            self.ENA.duty_cycle = 0xffff
+            for i in range(10000, 0xffff, duty_cycle_step):
+                self.ENA.duty_cycle = int(i * speed)
+            self.ENA.duty_cycle = int(0xffff * speed)
         else:
-            self.ENA.duty_cycle = 0xffff
-
-        self.IN1.duty_cycle = 0xffff
+            self.ENA.duty_cycle = int(0xffff * speed)
+        self.IN1.duty_cycle = int(0xffff * speed)
         self.IN2.duty_cycle = 0
 
-    def Backward(self, enablePWM=True):
+    def Forward(self, enablePWM=True, duty_cycle_step=1000, speed=1.0):
         if enablePWM:
-            for i in range(10000, 0xffff, 10000):
-                self.ENA.duty_cycle = i
-            self.ENA.duty_cycle = 0xffff
+            for i in range(10000, 0xffff, duty_cycle_step):
+                self.ENA.duty_cycle = int(i * speed)
+            self.ENA.duty_cycle = int(0xffff * speed)
         else:
-            self.ENA.duty_cycle = 0xffff
-
+            self.ENA.duty_cycle = int(0xffff * speed)
         self.IN1.duty_cycle = 0
-        self.IN2.duty_cycle = 0xffff
+        self.IN2.duty_cycle = int(0xffff * speed)
 
     def Stop(self, enablePWM=True):
         if enablePWM:
@@ -60,17 +58,17 @@ class MyPCA9685():
         self.servo2_instance.angle = angle
 
 try:
-    control = MyPCA9685(ENA=0, IN1=1, IN2=2, Servo1=3, Servo2=15)
+    control = MyPCA9685(ENA=0, IN1=1, IN2=2, Servo1=3, Servo2=4)
     while True:
-        #control.Forward(True)
-        
+        #control.Forward(True, speed=0.2)
+
         control.Stop(True)
 
-        #control.Backward(True)
+        #control.Backward(True, speed=0.2)
 
         control.Servo1_Angle(110)
 
-        #control.Servo2_Angle(30)	#MIN=30 | MAX=180 | 110
+        control.Servo2_Angle(30)	#MIN=30 | MAX=180 | 110
 
 except KeyboardInterrupt:
     pass

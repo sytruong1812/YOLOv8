@@ -26,10 +26,11 @@
 
     - Thieu argparse:
         pip3 install argparse
-
+    - Thieu PIP:
+        sudo apt-get install python3-pip -y
 3. Run
 
     cd to autoCar folder
 
     python3 ./run.py
-    python3 ./run.py --showCamera True
+    python3 ./run.py --sc True
