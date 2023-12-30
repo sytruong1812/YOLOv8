@@ -5,6 +5,12 @@ from board import SCL, SDA
 from adafruit_pca9685 import PCA9685
 import adafruit_motor.servo
 
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+print("Initialize IP and PORT.")
+client_socket.connect(('127.0.0.1', 12345))
+client_socket.sendall('Connected'.encode('utf-8'))    # Send connected status
+print("Connected to the server.")
+
 class Control:
     def __init__(self, ENA=0, IN1=1, IN2=2, Servo1=3, Servo2=4):
         self.i2c_bus = busio.I2C(SCL, SDA)
